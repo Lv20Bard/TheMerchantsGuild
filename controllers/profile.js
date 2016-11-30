@@ -18,18 +18,18 @@ angular.module('merchantsGuild').controller('ProfileController',function($scope,
 
 
 	// Check if this is your own profile 
-  	if($routeParams.userID){
-  		$scope.userIdOfProfile = Auth.getUser($routeParams.userID);
+	if($routeParams.userID){
+		$scope.userIdOfProfile = Auth.getUser($routeParams.userID);
   		
-		if($scope.currentUser != undefined){
-		  	if($scope.currentUser.$id == $routeParams.userID){
-		  		$scope.ownsThisProfile = true;
-		  	}
-		  	else{
-		  		$scope.ownsThisProfile = false;
-		  	}
-		 }		
+	if($scope.currentUser != undefined){
+  	if($scope.currentUser.$id == $routeParams.userID){
+  		$scope.ownsThisProfile = true;
   	}
+  	else{
+  		$scope.ownsThisProfile = false;
+  	}
+	 }		
+	}
 
 
 	// For adding reviews

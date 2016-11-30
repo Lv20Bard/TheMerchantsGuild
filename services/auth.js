@@ -122,12 +122,28 @@ angular.module('merchantsGuild').factory('Auth', function($firebaseAuth, $fireba
 			return listing;
 		},
 
+		deleteSecondaryRequestLocation: function(userID, requestID){
+			var listingRef = firebase.database().ref().child('requestListings').child(userID).child(requestID);
+			var listing = $firebaseObject(listingRef);
+
+			return listing.$remove();
+
+		},
+
 		getSecondaryProductDirectory: function(userID){
 			var listingRef = firebase.database().ref().child('productListing').child(userID);
 
 			var listing = $firebaseArray(listingRef);
 
 			return listing;
+		},
+
+		deleteSecondaryProductLocation: function(userID, productID){
+			var listingRef = firebase.database().ref().child('productListing').child(userID).child(productID);
+			var listing = $firebaseObject(listingRef);
+
+			return listing.$remove();
+
 		},
 
 

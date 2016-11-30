@@ -63,14 +63,19 @@ angular.module('merchantsGuild').controller('StoreController',function($scope, $
 	});
 
 
+
+
+
 	//Deletes a store item 
 	$scope.deleteThisItem = (function(){
 		
-		StoreItem.deleteSecondary($scope.currStoreItem);
-		StoreItem.deleteStoreItem($scope.currStoreItem);
-		$("#editItemModal").modal('hide');
-		$location.path('/store').replace();
-	})
+		
+		Auth.deleteSecondaryProductLocation($scope.currStoreItem.userWhoPosted, $routeParams.itemID).then(function(){
+			StoreItem.deleteStoreItem($scope.currStoreItem);
+			$("#editItemModal").modal('hide');
+			$location.path('/store').replace();
+		});
+	});
 
 
 

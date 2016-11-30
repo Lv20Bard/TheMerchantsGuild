@@ -43,9 +43,12 @@ angular.module('merchantsGuild').controller('RequestsController',function($scope
 	// Deleting a request from the list
 	$scope.deleteThisRequest = (function(){
 
-		Requests.deleteRequest($scope.currRequestItem);
-		$("#editRequestModal").modal('hide');
-		$location.path('/requests').replace();
+		Auth.deleteSecondaryRequestLocation($scope.currRequestItem.userWhoPosted, $routeParams.requestID).then(function(){
+			Requests.deleteRequest($scope.currRequestItem);
+			$("#editRequestModal").modal('hide');
+			$location.path('/requests').replace();
+
+		});
 
 	});
 
@@ -74,12 +77,8 @@ angular.module('merchantsGuild').controller('RequestsController',function($scope
 	// TODO: Adding Time Stamping
 	$scope.addRequest = function(){
 		
-		if(!(Array.isArray($scope.currRequestItem.tags))){
-			if($scope.currRequestItem.tags != undefined){
-				$scope.tagArray = $scope.currRequestItem.tags.split(",");
-			}
-		}
-		
+
+		$scope.tagArray = $scope.request.tags.split(",");
 		$scope.uid = $scope.currentUser.$id;
 
 
@@ -126,7 +125,6 @@ angular.module('merchantsGuild').controller('RequestsController',function($scope
 		Requests.saveRequests($scope.currRequestItem).then(function(){
 			
 			Auth.addRequest($scope.currentUser.$id , requestObj, $routeParams.requestID);
-			console.log($scope.currRequestItem);
 			$("#editRequestModal").modal('hide');
 
 		});
