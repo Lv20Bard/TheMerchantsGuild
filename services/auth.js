@@ -120,7 +120,7 @@ angular.module('merchantsGuild').factory('Auth', function($firebaseAuth, $fireba
 
 			
 
-			listing.$save();		
+			return listing.$save();		
 
 		},
 

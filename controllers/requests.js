@@ -47,9 +47,8 @@ angular.module('merchantsGuild').controller('RequestsController',function($scope
 		}
 	
 
-		console.log(currentUser);
 		console.log($scope.currRequestItem);
-		Requests.saveSecondary(currentUser , $scope.currRequestItem);
+		Auth.addRequest($scope.currentUser.$id , $scope.currRequestItem, $routeParams.requestID);
 		Requests.saveRequests($scope.currRequestItem);
 		
 		$("#editRequestModal").modal('hide');
