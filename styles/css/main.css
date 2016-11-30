@@ -1,0 +1,336 @@
+html{
+	height: 100vh;
+	width: 100vw;
+}
+
+body{
+	height: 100%;
+	width: 100%;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a{
+    color: #252222;
+}
+
+
+.nav-bar{
+	background-color: #418C18;
+	position: fixed;
+	left:0;
+	right: 0;
+	height: 50px;
+	width: 100%;
+	z-index: 1000; 
+}
+
+
+
+/*Sidebar*/
+#wrapper {
+	height: 100%;
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+
+#sidebar-wrapper {
+    z-index: 0;
+    position: fixed;
+    top: 50px;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background-color: #D8DAD3;
+
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+
+
+
+}
+
+/*Sidebar toggleing*/
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+
+#sidebar-wrapper.toggled {
+    width: 250px;
+}
+
+#main-content-wrapper.toggled {
+    position: relative;
+}
+
+#wrapper {
+    padding-left: 0;
+}
+
+#wrapper #sidebar-wrapper {
+    width: 0;
+}
+
+
+#wrapper #main-content-wrapper {
+	position: relative;
+	margin-right: 0;
+}
+
+.search-btn{
+    position: fixed;
+    top:100px;
+	background-color: #D8DAD3;
+	border-radius: 0;
+
+    z-index: 500;
+
+}
+
+
+/*Search Button*/
+.search-btn i{
+	color: black;
+}
+
+
+/* Nav Bar*/
+.nav-dropdown{
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+    font-size: 24px;
+    width: auto;
+    border-style: none;
+}
+
+.nav-dropdown:hover{
+    background-color: #F1F2EB;
+}
+
+.logo-text{
+    height: 100%;
+    font-size: 24px;
+    vertical-align: middle;
+
+}
+
+
+
+
+
+/*Main content*/
+#main-content-wrapper{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 50px;
+}
+
+
+
+/*Shop section*/
+#panel-section{
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 15px;
+}
+
+.panel{
+
+    box-shadow: 0px 10px 38px -10px rgba(37,34,34,1);
+
+	height: auto;
+
+	border-radius: 0;
+
+}
+
+.item-panel, .panel, .panel-footer{
+	background-color: #F1F2EB;
+}
+
+.info-btn{
+	background-color: #D4AF37;
+}
+
+.contact-btn{
+    background-color: #D4AF37;
+}
+
+
+
+/*Tabs and modals*/
+
+.tab-pane, .modal-body, .modal-header, .modal-footer{
+    background-color: #D8DAD3;
+}
+
+.panel-footer{
+    border-style: none;
+}
+
+
+.nav-tabs{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-collapse: #252222;
+}
+
+.nav-tab{
+    border-color: #252222;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.panel-img{
+    height: 160px;
+}
+
+
+/*Tag Search Bar*/
+#tagInputBar{
+
+}
+
+
+
+/*Launch Page CSS*/
+
+#greenHeader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #418C18;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+
+    z-index: 2;
+}
+
+#greenFooter{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #418C18;
+
+    box-shadow:  0 -4px 4px 0 rgba(0, 0, 0, 0.5);
+
+    z-index: 2;
+}
+
+#videoPlayer{
+    position: absolute;
+    top:60px;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#awesome_video{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#callToAction{
+    position: absolute;
+    top:280px;
+
+}
+
+#callBtn{
+    background-color: #D4AF37;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+#callText{
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+#facebookBtn{
+    background-color: #3b5998;
+
+}
+
+#facebookBtn a{
+    color: white;
+}
+
+#googleBtn{
+    background-color: #ff3d00;
+}
+
+#googleBtn a{
+    color: white;
+}
+    
+
+/*Submit Item Modal*/
+#itemDescriptionTextBox{
+    height: 250px;
+}
+
+
+
+/*Page with item details*/
+#itemInfoWrapper{
+    position: absolute;
+    top: 50px;
+    height: 100%;
+}
+
+
+
+/*TODO LIST
+
+- Give Navbar a shadow
+- improve responsitive with Media Tags
+
+*/
+

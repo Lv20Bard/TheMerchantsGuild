@@ -1,0 +1,71 @@
+
+<div id="wrapper" >
+
+
+	<div ng-include="'pages/partials/navbar.html'">
+	</div> 
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+			<div class="form-group">
+				<br>
+			<label for="tagInputBar">Tags</label>
+			<input type="text" class="form-control" id="tagInputBar" placeholder="type a tag">
+			</div>
+			<div id="tagSection">
+				
+			</div>
+    </div>
+    <!-- /End Sidebar -->
+
+    <!-- Main Content Wrapper -->
+    <div id="main-content-wrapper" ng-controller="SearchbarController">
+    	<a class="btn search-btn" id="menu-toggle">
+            <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+        </a>
+
+        <!-- Panel Section -->
+        <div class="container-fluid">
+	    	<div class="row" id="panel-section">
+	        	
+
+	        	<div class="col-md-4 col-sm-6" ng-repeat="product in products">
+					<div class="col-sm-1"></div>
+						<!-- Main part of panel -->
+						<div class="col-sm-10 panel">
+							<div class="panel-header">
+								<img class="img-responsive panel-img" ng-src={{product.photoURL}}>
+							</div>
+							<div class="panel-body item-panel col-sm-12">
+					    		<h2>{{product.name}}</h2>
+					    		<h5>{{product.location}}</h5>
+					    		<br>
+					    		<h5>Tags:</h5>
+					    		<h5>{{product.tags}}</h5>
+					    	</div>
+						    <div class="panel-footer">
+						    	<a href="#/storeitem/{{product.$id}}" class="btn info-btn pull-right" type="submit">Info</a>
+						    	<span class="pull-left"><h4>{{product.price | currency}}</h4></span>
+					    	</div>
+					    </div>
+					    <!-- End main part of panel -->
+					<div class="col-sm-1"></div>
+				</div>
+				<br>
+
+
+
+
+			</div>
+		</div>
+		<!-- End Panel Section -->
+
+    </div>
+    <!-- End Main Content -->
+
+</div>
+<!-- End Wrapper -->
+
+
+
+

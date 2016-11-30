@@ -1,0 +1,174 @@
+<!-- Header and Nav -->
+<div class="nav-bar" ng-controller="LoginController">
+	<div class="pull-left text-center logo-text">
+		<span class="logo-text text-center">The Merchants Guild</span>
+	</div>
+
+		<!-- Profiles Tab -->
+		<div id="profile-tab" ng-show="loginStatus.isLoggedIn" class="dropdown pull-right nav-dropdown">
+			<button class="nav-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Profile<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dLabel">
+			<li><a id="view-profile-btn" href="#/profile/{{currentUser.$id}}">View Profile</a></li>
+			<li><a id="logout-btn" ng-click="logout()" >Logout</a></li>
+		</ul>
+		</div>
+
+		<!-- Login Tab -->
+		<div id="profile-tab" ng-hide="loginStatus.isLoggedIn" class="dropdown pull-right nav-dropdown">
+			<button class="nav-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Login<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dLabel">
+				<li><a id="facebook-login-dropdown-btn" ng-click="loginWithFacebook()">Login With Facebook</a></li>
+				<li><a id="google-login-dropdown-btn" ng-click="loginWithGoogle()" >Login With Google</a></li>
+			</ul>
+		</div>
+
+
+
+		<!-- Sellers Tabs -->
+		<div id="seller-tab" class="dropdown pull-right nav-dropdown">
+			<button class="nav-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Sellers<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dLabel">
+				<li><a id="browse-request-btn" href="#/requests">Browse Requests</a></li>
+				<li ng-show="loginStatus.isLoggedIn"><a id="list-product-btn" ng-click="showSubmitItemModal()">List A Product</a></li>
+			</ul>
+		</div>
+
+		<!-- Buyers Tab -->
+		<div id="buyer-tab" class="dropdown pull-right nav-dropdown">
+			<button  class="nav-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Buyers<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dLabel">
+				<li><a id="browse-items-btn" href="#/store">Browse Items</a></li>
+				<li ng-show="loginStatus.isLoggedIn" ><a id="place-request-btn" ng-click="showSubmitRequestModal()" >Submit a Request</a></li>
+			</ul>
+		</div>
+		
+</div>
+<!-- End Nav -->
+
+
+
+
+
+<!--*************************************************** Modals ****************************************************************************-->
+<!-- Sumbit a Item Modal -->
+<div class="modal fade" id="submit-item-modal" tabindex="-1" role="dialog" aria-labelledby="submit-item-modal">
+	<!-- Shows the  -->
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>	
+				<h4 class="modal-title">Post an Item</h4>	
+			</div>
+			<!-- End Modal Header -->
+			<!-- Modal Body -->
+			<form name="newItemForm" ng-submit="addStoreItem()">
+				<div class="modal-body">
+					<h5>Item Name</h5>
+					<input type="text" class="form-control" placeholder="name" ng-model="storeItem.name">
+					
+					<h5>URL of the image you want to use (eventually this will be a file upload)</h5>
+					<input type="text" class="form-control" placeholer="image Url" ng-model="storeItem.photoURL">
+
+					<h5>Your Location</h5>
+					<input type="text" class="form-control" placeholder="location" ng-model="storeItem.location">
+					
+					<h5>Description</h5>
+					<textarea id="itemDescriptionTextBox" class="col-sm-12" type="text" placeholder="description" ng-model="storeItem.description"></textarea>
+					
+					<h5>Specifications you would like to mention</h5>
+					<input type="text" class="form-control" placeholder="specifications" ng-model="storeItem.specs">
+					
+					<h5>Tags,seperated,by,commas</h5>
+					<input type="text" class="form-control" placeholder="tags" ng-model="storeItem.tags">
+					
+					<h5>Price</h5>
+					<div class="col-lg-6">
+					    <div class="input-group">
+					    	<input type="text" class="form-control" aria-label="..." ng-model="storeItem.price">
+					     	<div class="input-group-btn">
+					        	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-usd" aria-hidden="true"></i><span class="caret"></span></button>
+					        	<ul class="dropdown-menu dropdown-menu-right">
+						          	<li><a ng-click="changeToUSD"><i class="fa fa-usd" aria-hidden="true"></i></a></li>
+						          	<li><a ng-click="changeToEUR"><i class="fa fa-eur" aria-hidden="true"></i></a></li>
+							        <li><a ng-click="changeToGBP"><i class="fa fa-gbp" aria-hidden="true"></i></a></li>
+					        	</ul>
+					     	</div><!-- /btn-group -->
+					    </div><!-- /input-group -->
+					</div>
+				</div>
+				<button class="btn-success btn"> Submit</button>
+			</form>
+			<!-- End Modal Body -->
+			<!-- Modal Footer -->
+			<div class="modal-footer">
+				<!-- button class="btn btn-danger" ng-click="reset()">Reset</button> -->
+				
+			</div>
+			<!-- End Modal Footer -->
+		</div>
+		<!-- End Modal Content -->
+	</div>
+</div>
+<!-- End Submit a item Modal -->
+
+
+<!-- Sumbit a Request Modal -->
+<div class="modal fade" id="submit-request-modal" tabindex="-1" role="dialog" aria-labelledby="submit-request-modal">
+	<!-- -->
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>	
+				<h4 class="modal-title">Post an Request</h4>	
+			</div>
+			<!-- End Modal Header -->
+			<!-- Modal Body -->
+			<form name="newRequestForm" ng-submit="addRequest()">
+				<div class="modal-body">
+					<h5>Request Name</h5>
+					<input type="text" class="form-control" placeholder="name" ng-model="request.name">
+					
+					<h5>Blueprint or refrence image for your request</h5>
+					<input type="text" class="form-control" placeholer="image Url" ng-model="request.photoURL">
+
+					<h5>Your Location</h5>
+					<input type="text" class="form-control" placeholder="location" ng-model="request.location">
+					
+					<h5>Description</h5>
+					<textarea id="DescriptionTextBox" class="col-sm-12" type="text" placeholder="description" ng-model="request.description"></textarea>
+					
+					<h5>Specific Dimensions Required</h5>
+					<input type="text" class="form-control" placeholder="specifications" ng-model="request.specs">
+					
+					<h5>Tags,seperated,by,commas</h5>
+					<input type="text" class="form-control" placeholder="tags" ng-model="request.tags">
+					
+					<h5>Budget</h5>
+					<div class="col-lg-6">
+				    	<input type="text" class="form-control" aria-label="..." ng-model="request.price">
+					</div>
+				</div>
+				<button class="btn-success btn">Submit</button>
+			</form>
+			<!-- End Modal Body -->
+			<!-- Modal Footer -->
+			<div class="modal-footer">
+			<!-- button class="btn btn-danger" ng-click="reset()">Reset</button> -->
+				
+			</div>
+			<!-- End Modal Footer -->
+		</div>
+		<!-- End Modal Content -->
+	</div>
+</div>
+<!-- End Submit a item Modal

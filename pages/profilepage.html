@@ -1,0 +1,111 @@
+<!-- Wrapper -->
+ <div id="wrapper">
+
+	<!-- Nav-bar -->
+	<div ng-include="'pages/partials/navbar.html'"></div>
+
+	<!-- Everything Else on profile -->
+	<div id="mainProfileWrapper">
+		<img ng-src="{{currentUser.photoURL}]">
+		<h1>{{currentUser.display_name}}</h1>
+		<br><br><br><br>
+
+
+		<section class="tab" ng-controller="TabController as tab">
+			<!-- Tabs for profile -->
+			<ul class="nav nav-pills">
+				<li ng-class="{active: tab.isSet(1)}">
+					<a href ng-click="tab.setTab(1)">User Reviews</a>
+				</li>
+				<li ng-class="{active: tab.isSet(2)}">	
+					<a href ng-click="tab.setTab(2)">Posted Items</a>
+				</li>
+				<li ng-class="{active: tab.isSet(3)}">
+					<a href ng-click="tab.setTab(3)">Posted Requests</a>
+				</li>
+			</ul>
+			<!-- Sections in the Tabs -->
+			<div ng-show="tab.isSet(1)">
+				<h4>User Reviews</h4>
+				<ul>
+					<li ng-repeat="review in userIdOfProfile.userReviews">
+						<blockquote>
+							<strong>{{review.stars}} Stars</strong>
+							{{review.body}}
+							<cite class="clearfix">-{{review.author}}</cite>
+						</blockquote>
+					</li>
+				</ul>
+
+				<!-- make a review -->
+				<form name="reviewForm" ng-submit="addReview()" ng-hide="ownsThisProfile">
+              		<!--  Live Preview -->
+		            <blockquote>
+		                <strong> {{review.stars}} Stars</strong>
+		                {{review.body}}
+		                <cite class="clearfix">-{{review.author}}</cite>
+		            </blockquote>
+
+					<!-- Review form -->
+					<h4>Submit a review</h4>
+					<fieldset class="form-group">
+                		<select ng-model="review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars">
+                 			 <option value="">Rate the Product</option>
+                		</select>
+              		</fieldset>
+              		
+              		<fieldset class="form-group">
+                		<textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+              		</fieldset>
+             		
+             		<fieldset class="form-group">
+                		<input ng-model="review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+              		</fieldset>
+              		<fieldset class="form-group">
+                		<input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+              		</fieldset>
+				</form>
+
+
+			</div>
+
+			<!-- Tab containing all the items a user has posted -->
+			<div ng-show="tab.isSet(2)">
+				<h4>Posted Items</h4>
+				<ul>
+					<li ng-repeat="product in userIdOfProfile.userProducts">
+						<blockquote>
+							<strong>{{product.name}}</strong>
+							
+							<a class="info-btn btn" href="#/storeitem/{{product.itemID}}">View Page</a>
+						</blockquote>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Tab with all the requests a user posted -->
+			<div ng-show="tab.isSet(3)">
+				<h4>Posted Requests</h4>
+				<ul>
+					<li ng-repeat="request in userIdOfProfile.userRequests">
+						<blockquote>
+							<strong>{{request.name}}</strong>
+							
+							<a class="info-btn btn" href="#/storeitem/{{request.itemID}}">View Page</a>
+						</blockquote>
+					</li>
+				</ul>
+			</div>
+
+		</section>
+		<!-- End Tab section -->
+
+
+
+	</div>
+	<!-- End Everything Else -->
+
+
+
+</div>
+<!-- End Wrapper

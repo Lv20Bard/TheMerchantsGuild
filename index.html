@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="merchantsGuild">
+	<head>
+		<!-- Title -->
+		<title>The Merchants Guild</title>
+	
+		<!-- Mobile View -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- BOOTSTRAP CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+        <!-- Your custom CSS -->
+        <link rel='stylesheet' type='text/css' href='styles/css/main.css'>
+
+	</head>
+
+	<body>
+       
+
+		<div>
+			<div ng-view>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	    <!-- JQUERY -->
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+	    <!-- FontAwesome -->
+	    <script src="https://use.fontawesome.com/f618e64766.js"></script>
+	    <!-- BOOTSTRAP JS -->
+	    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+
+        <!-- ************************************************************ Angular ********************************************************************* -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <!-- Routing -->
+   		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+   		<!-- Animation -->
+   		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+   		<!-- Touch -->
+   		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-touch.js"></script>
+
+        <!-- Firebase -->
+		<script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+
+        <script>
+
+			var config = {
+			    apiKey: "AIzaSyCgDW1Nh_ThATm0aOaNsA8NuVFuU4UPds4",
+			    authDomain: "the-merchants-guild.firebaseapp.com",
+			    databaseURL: "https://the-merchants-guild.firebaseio.com",
+			    storageBucket: "the-merchants-guild.appspot.com",
+			    messagingSenderId: "988120089026"
+			  };
+		  	firebase.initializeApp(config);
+		</script>
+
+   		<!-- AngularFire -->
+		<script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+		<!-- ***************************************************** End Angular Moduals ************************************************************* -->
+
+
+		
+		<!-- App.js -->
+		<script src="app.js"></script>
+
+
+		<!-- Controllers -->
+		<script src="controllers/login.js"></script>
+		<script src="controllers/store.js"></script>
+		<script src="controllers/requests.js"></script>
+
+		<!-- Services -->
+		<script src="services/auth.js"></script>
+		<script src="services/profile.js"></script>
+		<script src="services/storeItem.js"></script>
+		<script src="services/requestItem.js"></script>
+
+	</body>
+
+
+</html>

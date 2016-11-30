@@ -1,0 +1,128 @@
+<div id="wrapper">
+
+	<!-- Nav-Bar -->
+	<div ng-include="'pages/partials/navbar.html'"></div>
+
+	<!-- section for the items information -->
+	<div id="itemInfoWrapper">	
+		<div class="container fluid">
+			<div class="row">
+				<!-- Item image -->
+				<div class="col-sm-5">
+					<img class="img img-responsive" ng-src={{currStoreItem.photoURL}}>	
+				</div>
+
+				<!-- Item details -->
+				<div class="col-sm-7">
+
+					<!-- Title -->
+					<h1 id="itemTitle">{{currStoreItem.name}}</h1>
+					<br>
+
+					<!-- Description -->
+					<h4 id="itemDesctiption">Description:</h4>
+					<p>{{currStoreItem.description}}</p>
+					<br>
+
+					<!-- Specs -->
+					<h4>Specifications</h4>
+					<p id="itemSpecifications">{{currStoreItem.specs}}</p>
+					<br>
+
+					<!-- Creator Information -->
+					<h4>Creator Information</h4>
+					<p>Created By: {{ownerOfItem.display_name}}</p>
+					<p>In: {{currStoreItem.location}}</p>
+					<br>
+
+					<!-- Price -->
+					<h4>Price</h4>
+					<p>{{currStoreItem.price | currency }}</p>
+					
+				</div>
+				
+				<!-- Buttons -->
+				<div>
+					<button class="btn info-btn" ng-show="loginStatus.isLoggedIn" ng-click="openEmailModal()">Contact Seller</button>
+					<a class="btn info-btn" href="#/profile/{{currStoreItem.userWhoPosted}}">View Seller Profile</a>
+					<button class="btn btn-danger" ng-show="ownsCurrentItem" ng-click="openEditItemModal()">Edit Item</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End ItemInfoWrapper -->
+
+
+	<!-- Edit Item Modal, opens up a modal so you can edit a item you posted -->
+	<div class="modal fade" id="editItemModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">Edit Item</h4>
+				</div>
+				
+				<form name="editItemForm">
+				<div class="modal-body">
+					<h5>Item Name</h5>
+					<input type="text" class="form-control" placeholder="name" ng-model="currStoreItem.name"> 
+					
+					<h5>URL of the image you want to use (eventually this will be a file upload)</h5>
+					<input type="text" class="form-control" placeholer="image Url" ng-model="currStoreItem.photoURL">
+
+					<h5>Your Location</h5>
+					<input type="text" class="form-control" placeholder="location" ng-model="currStoreItem.location">
+					
+					<h5>Description</h5>
+					<textarea id="itemDescriptionTextBox" class="col-sm-12" type="text" placeholder="description" ng-model="currStoreItem.description"></textarea>
+					
+					<h5>Specifications you would like to mention</h5>
+					<input type="text" class="form-control" placeholder="specifications" ng-model="currStoreItem.specs">
+					
+					<h5>Tags,seperated,by,commas</h5>
+					<input type="text" class="form-control" placeholder="tags" ng-model="currStoreItem.tags">
+					
+					<h5>Price</h5>
+					<div class="col-lg-6">
+				  		<input type="text" class="form-control" aria-label="..." ng-model="currStoreItem.price">
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-danger" ng-click="deleteThisItem()">Delete</button>
+					<button type="button" class="btn btn-success" ng-click="editStoreItem()">Confirm</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+
+	<!-- Email Modal, opens up a modal so you can write a email and send it -->
+	<div class="modal fade" id="emailModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">Contact The Seller</h4>
+				</div>
+				<div class="modal-body">
+					<textarea class="form-control" ng-model="emailbody" placeholder="write your email here, ideally put information that will help the seller contact you to sell the goods">
+						
+					</textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-success" ng-click="sendEmail(emailbody)">Send</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+
+</div>
+<!-- End Wrapper -->

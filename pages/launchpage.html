@@ -1,0 +1,54 @@
+<div class="container" ng-controller="LoginController">
+	<div class="row">
+		
+
+		<div id="greenHeader">
+
+		</div>
+
+		<div id="videoPlayer">
+			<video id="awesome_video" class="hidden-ms" src="./styles/assets/video/swordfire.mp4" autoplay></video>
+	   		<br style='clear:both'/>
+
+		    	<script type="text/javascript">
+		        	var index = 1,
+	                playlist = [
+	                	"./styles/assets/video/swordfire.mp4",
+	                	"./styles/assets/video/swordfire.mp4"
+	                ]
+	            	video = document.getElementById('awesome_video');
+
+	            	video.addEventListener('ended', rotate_video, false);
+
+	          		function rotate_video() {
+		            	video.setAttribute('src', playlist[index]);
+		                video.load();
+		                index++;
+		               	if (index >= playlist.length) {
+		                   index = 0;
+		               	}
+	            	}
+		       </script> 
+
+		       	<div id="callToAction" class="col-sm-4 col-sm-offset-4">
+		       		<h1 id="callText">THE MERCHANTS GUILD</h1>
+		       		<!-- Go to Store Button -->
+		       		<a id="callBtn" class="btn-lg btn col-sm-offset-3" href="#/store">GO TO THE SITE</a>
+		       		<!-- FacebookLogin -->
+		       		<a id="facebookBtn" ng-hide="loginStatus.isLoggedIn" ng-click="loginWithFacebook()" class="btn-lg btn col-sm-offset-3" href="">Login with Facebook <i class="fa fa-facebook" aria-hidden="true"></i></a>
+		       		<!-- Google Login -->
+		       		<a id="googleBtn" ng-hide="loginStatus.isLoggedIn" ng-click="loginWithGoogle()" class="btn-lg btn col-sm-offset-3" href="">Login with Google <i class="fa fa-google" aria-hidden="true"></i></a>
+		       	</div>
+
+
+		</div>
+
+		<div id="greenFooter">
+
+
+
+
+		</div>
+
+	</div>
+</div>
