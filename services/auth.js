@@ -76,24 +76,16 @@ angular.module('merchantsGuild').factory('Auth', function($firebaseAuth, $fireba
 		addProduct: function(userID, product, productID){
 			var listingRef = firebase.database().ref().child('productListing').child(userID).child(productID);
 			
-			console.log(userID);
-			console.log(listingRef);
-
 			var listing = $firebaseObject(listingRef);
-			console.log(listing);
-			console.log(product);
 
-			listing.description = product.description;
-			listing.itemID = product.itemID;
-			listing.location = product.location;
-			listing.name = product.name;
-			listing.price = product.price;
-			listing.specs = product.specs;
-			listing.tags = product.tags;
-			listing.userWhoPosted = product.userWhoPosted;
-			
-			console.log(listing);
-			return listing.$save();
+			listing.$loaded().then(function(){
+
+				listing.itemID = productID;
+				listing.name = product.name;
+				listing.price = product.price;
+
+				return listing.$save();
+			});
 		
 
 		},
@@ -103,32 +95,39 @@ angular.module('merchantsGuild').factory('Auth', function($firebaseAuth, $fireba
 			var listingRef = firebase.database().ref().child('requestListings').child(userID).child(requestID);
 
 
-
 			var listing = $firebaseObject(listingRef);
 
-			
+			listing.$loaded().then(function(theListing){
 
-			listing.description = request.description;
-			listing.itemID = request.itemID;
-			listing.location = request.location;
-			listing.name = request.name;
-			listing.price = request.price;
-			listing.specs = request.specs;
-			listing.tags = request.tags;
-			listing.userWhoPosted = request.userWhoPosted;
+
+				listing.itemID = requestID;
+				listing.name = request.name;
+				listing.price = request.price;
+
+				return listing.$save();		
 			
+			});
 
 			
-
-			return listing.$save();		
+			
 
 		},
 
 
-		getSecondaryDirectory: function(userUD){
+		getSecondaryRequestDirectory: function(userID){
 			var listingRef = firebase.database().ref().child('requestListings').child(userID);
 
 			var listing = $firebaseArray(listingRef);
+
+			return listing;
+		},
+
+		getSecondaryProductDirectory: function(userID){
+			var listingRef = firebase.database().ref().child('productListing').child(userID);
+
+			var listing = $firebaseArray(listingRef);
+
+			return listing;
 		},
 
 

@@ -38,7 +38,7 @@
 				</ul>
 
 				<!-- make a review -->
-				<form name="reviewForm" ng-submit="addReview()" ng-hide="ownsThisProfile">
+				<form name="reviewForm" ng-submit="addReview()" ng-hide="ownsThisProfile || !loginStatus.isLoggedIn">
               		<!--  Live Preview -->
 		            <blockquote>
 		                <strong> {{review.stars}} Stars</strong>
@@ -73,9 +73,9 @@
 			<div ng-show="tab.isSet(2)">
 				<h4>Posted Items</h4>
 				<ul>
-					<li ng-repeat="product in userIdOfProfile.userProducts">
+					<li ng-repeat="product in listedProducts">
 						<blockquote>
-							<strong>{{product.name}}</strong>
+							<h4><strong>{{product.name}}</strong>{{product.price | currency}}</h4>
 							
 							<a class="info-btn btn" href="#/storeitem/{{product.itemID}}">View Page</a>
 						</blockquote>
@@ -87,11 +87,11 @@
 			<div ng-show="tab.isSet(3)">
 				<h4>Posted Requests</h4>
 				<ul>
-					<li ng-repeat="request in userIdOfProfile.userRequests">
+					<li ng-repeat="request in listedRequests">
 						<blockquote>
-							<strong>{{request.name}}</strong>
+							<h4><strong>{{request.name}}</strong> {{request.price | currency}}</h4>
 							
-							<a class="info-btn btn" href="#/storeitem/{{request.itemID}}">View Page</a>
+							<a class="info-btn btn" href="#/requestitem/{{request.itemID}}">View Page</a>
 						</blockquote>
 					</li>
 				</ul>

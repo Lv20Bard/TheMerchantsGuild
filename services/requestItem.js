@@ -23,21 +23,11 @@ angular.module('merchantsGuild').factory('Requests',function($firebaseArray, $fi
 			return thisRequest.$save();
 		},
 
-		saveSecondaryRequest: function(userID, requestID){
-			var secondaryRef  = firebase.database().ref().child('requestListing').child(userID).child(requestID);
-			var item = firebaseObject(secondaryRef);
-			item.$save();
-		},
 	
 		deleteRequest: function(thisRequest){
 			return thisRequest.$remove();
 		},
 
-		deleteSecondary: function(userID){
-			var secondaryRef  = firebase.database().ref().child('requestListing').child(userID).child(requestID);
-			var item = firebaseObject(secondaryRef);
-			item.$delete();
-		}
 
 	};
 

@@ -71,7 +71,7 @@ app.config(function($routeProvider){
 
 	.when('/profile/:userID',{
 		templateUrl:'pages/profilepage.html',
-		controller:'StoreController',
+		controller:'ProfileController',
 		resolve:{
 			AuthWaitForLogged:function(Auth){
 				return Auth.getAuth().$waitForSignIn();

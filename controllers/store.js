@@ -52,14 +52,8 @@ angular.module('merchantsGuild').controller('StoreController',function($scope, $
 			}
 		}
 
-		console.log($scope.ownerOfItem.$id);
-		console.log($scope.currStoreItem);
-		console.log($routeParams.itemID);
 		StoreItem.saveStoreItem($scope.currStoreItem).then(function(){
-			
-			console.log($scope.ownerOfItem.$id);
-			console.log($scope.currStoreItem);
-			console.log($routeParams.itemID);
+
 			Auth.addProduct($scope.ownerOfItem.$id, $scope.currStoreItem, $routeParams.itemID);
 			
 			
@@ -99,16 +93,24 @@ angular.module('merchantsGuild').controller('StoreController',function($scope, $
 		$scope.storeItem.userWhoPosted = $scope.uid;
 		
 		
-		StoreItem.addNewStoreItem($scope.storeItem).then(function(newItem){
+		StoreItem.addNewStoreItem($scope.storeItem).then(function(newStoreItem){
+			$scope.storeItem.itemID = newStoreItem.key;
 
-			Auth.addProduct($scope.currentUser.$id, $scope.storeItem, $scope.storeItem.itemID);
+
+			productObj = {
+				name: $scope.storeItem.name, 
+				price: $scope.storeItem.price, 
+				itemID: $scope.storeItem.itemID
+			}
+
+
+			Auth.addProduct($scope.currentUser.$id, productObj, $scope.storeItem.itemID);
+
 
 			$scope.storeItem = {};
+			$("#submit-item-modal").modal('hide');
 
 		});
-		
-		$("#submit-item-modal").modal('hide');
-
 		
 	};
 
@@ -130,26 +132,7 @@ angular.module('merchantsGuild').controller('StoreController',function($scope, $
 
 
 
-	// For adding reviews
-	$scope.review = {};
-   
-  	$scope.addReview = function(){
 
-    	Auth.addReview($routeParams.userID, $scope.review);
-
-    	$scope.review = {};
-  	};  
-
-  	if($routeParams.userID){
-  		$scope.userIdOfProfile = Auth.getUser($routeParams.userID);
-  		
-	  	if($scope.currentUser.$id == $routeParams.userID){
-	  		$scope.ownsThisProfile = true;
-	  	}
-	  	else{
-	  		$scope.ownsThisProfile = false;
-	  	}		
-  	}
 
 
 
@@ -174,15 +157,4 @@ angular.module('merchantsGuild').controller('SearchbarController',function(){
 });
 
 
-angular.module('merchantsGuild').controller('TabController', function(){
-    this.tab = 1;
-
-    this.setTab = function(newValue){
-      this.tab = newValue;
-    };
-
-    this.isSet = function(tabName){
-      return this.tab === tabName;
-    };
-  });
 

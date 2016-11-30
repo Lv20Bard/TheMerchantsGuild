@@ -38,4 +38,4 @@ Reviews strengthen the ability of users to find requests and products they like 
 #Development
 The Merchants Guild is developed by Ben MacNeil in Sydney, NS.
 
-If you would like to contact me for any reason I am avaliable at: Ben.S.MacNeil@Gamil.com 
+If you would like to contact me for any reason I am avaliable at: Ben.S.MacNeil@Gmail.com 

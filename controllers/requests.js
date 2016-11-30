@@ -38,22 +38,7 @@ angular.module('merchantsGuild').controller('RequestsController',function($scope
 		$("#editRequestModal").modal('show');
 	});
 
-	$scope.editRequestItem = (function(){
-		
-		if(!(Array.isArray($scope.currRequestItem.tags))){
-			if($scope.currRequestItem.tags != undefined){
-				$scope.tagArray = $scope.currRequestItem.tags.split(",");
-			}
-		}
-	
 
-		console.log($scope.currRequestItem);
-		Auth.addRequest($scope.currentUser.$id , $scope.currRequestItem, $routeParams.requestID);
-		Requests.saveRequests($scope.currRequestItem);
-		
-		$("#editRequestModal").modal('hide');
-
-	});
 
 	// Deleting a request from the list
 	$scope.deleteThisRequest = (function(){
@@ -89,7 +74,12 @@ angular.module('merchantsGuild').controller('RequestsController',function($scope
 	// TODO: Adding Time Stamping
 	$scope.addRequest = function(){
 		
-		$scope.tagArray = $scope.request.tags.split(",");
+		if(!(Array.isArray($scope.currRequestItem.tags))){
+			if($scope.currRequestItem.tags != undefined){
+				$scope.tagArray = $scope.currRequestItem.tags.split(",");
+			}
+		}
+		
 		$scope.uid = $scope.currentUser.$id;
 
 
@@ -98,15 +88,50 @@ angular.module('merchantsGuild').controller('RequestsController',function($scope
 
 		Requests.addNewRequest($scope.request).then(function(newRequest){
 			$scope.request.itemID = newRequest.key;
-			Auth.addRequest($scope.currentUser.$id, $scope.request, $scope.request.itemID);
+
+
+			requestObj = {
+				name: $scope.request.name, 
+				price: $scope.request.price, 
+				itemID: $scope.request.itemID
+			}
+
+
+			Auth.addRequest($scope.currentUser.$id, requestObj, $scope.request.itemID);
 
 
 			$scope.request = {};
 			$("#submit-request-modal").modal('hide');
 
-		})
+		});
 	};
 
+
+	// Edit Items
+	$scope.editRequestItem = (function(){
+	
+		if(!(Array.isArray($scope.currRequestItem.tags))){
+			if($scope.currRequestItem.tags != undefined){
+				$scope.tagArray = $scope.currRequestItem.tags.split(",");
+			}
+		}
+
+		requestObj = {
+				name: $scope.currRequestItem.name, 
+				price: $scope.currRequestItem.price, 
+				itemID: $routeParams.requestID
+		}
+
+	
+		Requests.saveRequests($scope.currRequestItem).then(function(){
+			
+			Auth.addRequest($scope.currentUser.$id , requestObj, $routeParams.requestID);
+			console.log($scope.currRequestItem);
+			$("#editRequestModal").modal('hide');
+
+		});
+
+	});
 
 
 
