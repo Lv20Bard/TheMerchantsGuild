@@ -29,7 +29,7 @@
 	    	<div class="row" id="panel-section">
 	        	
 
-	        	<div class="col-md-4 col-sm-6" ng-repeat="request in requestArr">
+	        	<div class="clearfix col-md-4 col-sm-6" ng-repeat="request in requestArr">
 					<div class="col-sm-1"></div>
 						<!-- Main part of panel -->
 						<div class="col-sm-10 panel">
@@ -43,7 +43,7 @@
 					    		<h5>Tags:</h5>
 					    		<h5>{{request.tags}}</h5>
 					    	</div>
-						    <div class="panel-footer">
+						    <div class="clearfix panel-footer">
 						    	<a href="#/requestitem/{{request.$id}}" class="btn info-btn pull-right" type="submit">Info</a>
 						    	<span class="pull-left"><h4>{{request.price | currency}}</h4></span>
 					    	</div>

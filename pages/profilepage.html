@@ -13,23 +13,23 @@
 
 		<section class="tab" ng-controller="TabController as tab">
 			<!-- Tabs for profile -->
-			<ul class="nav nav-pills">
-				<li ng-class="{active: tab.isSet(1)}">
-					<a href ng-click="tab.setTab(1)">User Reviews</a>
+			<ul class="nav nav-tabs profileTabs">
+				<li  ng-class="{active: tab.isSet(1)}">
+					<a href class="tabText" ng-click="tab.setTab(1)">User Reviews</a>
 				</li>
 				<li ng-class="{active: tab.isSet(2)}">	
-					<a href ng-click="tab.setTab(2)">Posted Items</a>
+					<a href class="tabText" ng-click="tab.setTab(2)">Posted Items</a>
 				</li>
 				<li ng-class="{active: tab.isSet(3)}">
-					<a href ng-click="tab.setTab(3)">Posted Requests</a>
+					<a href class="tabText" ng-click="tab.setTab(3)">Posted Requests</a>
 				</li>
 			</ul>
 			<!-- Sections in the Tabs -->
-			<div ng-show="tab.isSet(1)">
+			<div ng-show="tab.isSet(1)"  class="listingsSection">
 				<h4>User Reviews</h4>
 				<ul>
 					<li ng-repeat="review in userIdOfProfile.userReviews">
-						<blockquote>
+						<blockquote col-sm-12>
 							<strong>{{review.stars}} Stars</strong>
 							{{review.body}}
 							<cite class="clearfix">-{{review.author}}</cite>
@@ -70,12 +70,12 @@
 			</div>
 
 			<!-- Tab containing all the items a user has posted -->
-			<div ng-show="tab.isSet(2)">
+			<div ng-show="tab.isSet(2)" class="listingsSection">
 				<h4>Posted Items</h4>
 				<ul>
 					<li ng-repeat="product in listedProducts">
-						<blockquote>
-							<h4><strong>{{product.name}}</strong>{{product.price | currency}}</h4>
+						<blockquote class="col-sm-12">
+							<h4><strong>{{product.name}}&nbsp;&nbsp;&nbsp;</strong>{{product.price | currency}}</h4>
 							
 							<a class="info-btn btn" href="#/storeitem/{{product.itemID}}">View Page</a>
 						</blockquote>
@@ -84,12 +84,12 @@
 			</div>
 
 			<!-- Tab with all the requests a user posted -->
-			<div ng-show="tab.isSet(3)">
+			<div ng-show="tab.isSet(3)"  class="listingsSection">
 				<h4>Posted Requests</h4>
 				<ul>
 					<li ng-repeat="request in listedRequests">
-						<blockquote>
-							<h4><strong>{{request.name}}</strong> {{request.price | currency}}</h4>
+						<blockquote class="col-sm-12">
+							<h4><strong>{{request.name}}&nbsp;&nbsp;&nbsp;</strong>{{request.price | currency}}</h4>
 							
 							<a class="info-btn btn" href="#/requestitem/{{request.itemID}}">View Page</a>
 						</blockquote>

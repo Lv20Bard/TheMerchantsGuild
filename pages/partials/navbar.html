@@ -1,18 +1,18 @@
 <!-- Header and Nav -->
 <div class="nav-bar" ng-controller="LoginController">
-	<div class="pull-left text-center logo-text">
-		<span class="logo-text text-center">The Merchants Guild</span>
-	</div>
+	 
+		<span class="hideSmall logo-text text-center">The Merchants Guild</span>
+	
 
 		<!-- Profiles Tab -->
 		<div id="profile-tab" ng-show="loginStatus.isLoggedIn" class="dropdown pull-right nav-dropdown">
 			<button class="nav-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Profile<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu" aria-labelledby="dLabel">
-			<li><a id="view-profile-btn" href="#/profile/{{currentUser.$id}}">View Profile</a></li>
-			<li><a id="logout-btn" ng-click="logout()" >Logout</a></li>
-		</ul>
+			<span class="hideSmall">Profile</span><i class="fa fa-user-circle-o" aria-hidden="true"></i><span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dLabel">
+				<li><a id="view-profile-btn" href="#/profile/{{currentUser.$id}}">View Profile</a></li>
+				<li><a id="logout-btn" ng-click="logout()" >Logout</a></li>
+			</ul>
 		</div>
 
 		<!-- Login Tab -->
