@@ -43,7 +43,7 @@
 				
 				<!-- Buttons -->
 				<div>
-					<button class="btn info-btn" ng-show="loginStatus.isLoggedIn" ng-click="openEmailModal()">Contact Seller</button>
+					<button class="btn info-btn" ng-show="loginStatus.isLoggedIn && !ownsCurrentItem" ng-click="openEmailModal()">Contact Seller</button>
 					<a class="btn info-btn" href="#/profile/{{currStoreItem.userWhoPosted}}">View Seller Profile</a>
 					<button class="btn btn-danger" ng-show="ownsCurrentItem" ng-click="openEditItemModal()">Edit Item</button>
 				</div>
