@@ -43,7 +43,7 @@
 				
 				<!-- Buttons -->
 				<div>
-					<button class="btn info-btn" ng-show="loginStatus.isLoggedIn" ng-click="openEmailModal()">Contact Requester</button>
+					<button class="btn info-btn" ng-show="(loginStatus.isLoggedIn && !(ownsCurrentRequest))" ng-click="openEmailModal()">Contact Requester</button>
 					<a class="btn info-btn" href="#/profile/{{currRequestItem.userWhoPosted}}">View Requester Profile</a>
 					<button class="btn btn-danger" ng-show="ownsCurrentRequest" ng-click="openEditRequestModal()">Edit Item</button>
 				</div>
