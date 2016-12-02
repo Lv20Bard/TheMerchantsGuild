@@ -82,9 +82,6 @@ a{
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 
-
-
-
 }
 
 /*Sidebar toggleing*/
@@ -124,7 +121,6 @@ a{
     z-index: 500;
 
     display:none;
-
 
 }
 
@@ -211,6 +207,14 @@ a{
 }
 
 .btn-danger{
+    border-radius: 0;
+}
+
+.btn{
+    border-radius: 0;
+}   
+
+.dropdown-menu{
     border-radius: 0;
 }
 
@@ -420,6 +424,8 @@ a{
     .panel-footer h4{
         font-size: 3rem;
     }
+
+
 
     
 
