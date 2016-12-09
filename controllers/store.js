@@ -112,8 +112,9 @@ angular.module('merchantsGuild').controller('StoreController',function($scope, $
 			Auth.addProduct($scope.currentUser.$id, productObj, $scope.storeItem.itemID);
 
 
+			
+			$location.path('/storeitem/'+$scope.storeItem.itemID).replace();
 			$scope.storeItem = {};
-			$("#submit-item-modal").modal('hide');
 
 		});
 		

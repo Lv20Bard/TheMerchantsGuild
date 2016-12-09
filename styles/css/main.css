@@ -20,7 +20,6 @@ a{
     color: #252222;
 }
 
-
 .nav-bar{
 	background-color: #418C18;
 	position: fixed;
@@ -119,8 +118,7 @@ a{
 	border-radius: 0;
 
     z-index: 500;
-
-    display:none;
+    display: none;
 
 }
 
@@ -145,11 +143,44 @@ a{
     background-color: #F1F2EB;
 }
 
-.logo-text{
-    height: 100%;
-    font-size: 24px;
-    vertical-align: middle;
+.nav-dropdown:hover button{
+    color: black;
+}
 
+.nav-dropdown:hover i{
+    color: black;
+}
+
+.nav-dropdown:hover span{
+    color: black;
+}
+
+.logo-text{
+    
+    font-size: 24px;
+    color: #fefefe;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    height: 100%;
+
+}
+
+#brand{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    line-height: 2;
+
+
+}
+
+.nav-text{
+    color: #fefefe;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
 
@@ -218,7 +249,9 @@ a{
     border-radius: 0;
 }
 
-
+.itemTags{
+    word-wrap: break-word;
+}
 
 /*Tabs and modals*/
 
@@ -332,12 +365,6 @@ a{
 }
     
 
-/*Submit Item Modal*/
-#itemDescriptionTextBox{
-    height: 250px;
-}
-
-
 
 /*Page with item details*/
 #itemInfoWrapper{
@@ -377,16 +404,137 @@ a{
 }
 
 
+#mainProfileWrapper{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: 100%;
+}
 
-/*TODO LIST
+#profileUserName{
 
-- Give Navbar a shadow
-- improve responsitive with Media Tags
+}
 
-*/
+#profilePicture{
+    min-width: 250px;
+    min-height: 250px;
+    height: auto;
+    width: auto;
+    max-width:400;
+    max-height:400;
+
+    padding-left: 15px;
+    padding-top: 10px;
+    border-radius: 25px;
+
+}
+
+
+/*Post Item Page*/
+#postWrapper{
+
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+/*Input groups*/
+.textField{
+    border-left-style:  none;
+    border-right-style: none;
+    border-top-style: none;
+    border-radius: 0px;
+
+    border-bottom-color: #939393;
+    border-bottom-width: 1px;
+
+    padding-left: 0;
+
+    font-size: 12px;
+
+}
+
+.textField:focus{
+    border-bottom-width: 2px;
+    border-bottom-color: #418C18;
+
+}
+
+
+.newItemForm input.ng-invalid.ng-touched{
+    border-bottom-color: #b0912e;
+}
+
+.newItemForm textarea.ng-invalid.ng-touched{
+    border-bottom-color: #b0912e;
+}
 
 
 
+/*Input groups formating*/
+
+.postHeader{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+input{
+    font-family: 'Roboto', sans-serif;
+
+}
+
+input:focus{
+    outline: none;
+}
+
+.inputGroup{
+    height: 72px;
+}
+
+.inputGroupLrg{
+    height: auto;
+    padding-bottom: 15px;
+}
+
+
+#itemDescriptionTextBox{
+    height: 400px;
+    resize: none;
+}
+
+.inputLabel{
+    font-size: 12px;
+    line-height: 12px;
+    padding-top: 12px;
+    padding-bottom: 6px;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 0 0 0;
+    color: #939393;
+
+}
+
+.priceInput{
+    width: 100px;
+}
+
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-control{
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.inputGroup{
+    padding-bottom: 10px;
+}
 
 @media (max-width: 720px){
 
@@ -424,10 +572,6 @@ a{
     .panel-footer h4{
         font-size: 3rem;
     }
-
-
-
-    
 
 }   
 

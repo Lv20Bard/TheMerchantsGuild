@@ -13,7 +13,7 @@ app.config(function($routeProvider){
 
 	// Sweet launch page
 	.when('/',{
-		templateUrl:'pages/launchpage.html',
+		templateUrl:'pages/store.html',
 		controller: 'StoreController',
 		resolve: {
 			AuthWaitForLogged: function(Auth){
@@ -79,7 +79,25 @@ app.config(function($routeProvider){
 		}
 	})
 
+	.when('/postrequest',{
+		templateUrl:'pages/postRequestPage.html',
+		controller:'RequestsController',
+		resolve:{
+			AuthWaitForLogged:function(Auth){
+				return Auth.getAuth().$waitForSignIn();
+			}
+		}
+	})
 
+	.when('/postitem',{
+		templateUrl:'pages/postItemPage.html',
+		controller:'StoreController',
+		resolve:{
+			AuthWaitForLogged:function(Auth){
+				return Auth.getAuth().$waitForSignIn();
+			}
+		}
+	})
 
 
 	.otherwise('/')
