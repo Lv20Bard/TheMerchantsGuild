@@ -41,7 +41,7 @@
 					    		<h5>{{request.location}}</h5>
 					    		<br>
 					    		<h5>Tags:</h5>
-					    		<h5>{{request.tags}}</h5>
+					    		<span class="itemTags" ng-repeat="tag in request.tags track by $index">{{tag}} </span>
 					    	</div>
 						    <div class="clearfix panel-footer">
 						    	<a href="#/requestitem/{{request.$id}}" class="btn info-btn pull-right" type="submit">Info</a>

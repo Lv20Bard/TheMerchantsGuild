@@ -98,9 +98,9 @@ angular.module('merchantsGuild').controller('RequestsController',function($scope
 
 			Auth.addRequest($scope.currentUser.$id, requestObj, $scope.request.itemID);
 
-
+			$location.path('/requestitem/'+$scope.request.itemID).replace();
 			$scope.request = {};
-			$("#submit-request-modal").modal('hide');
+			
 
 		});
 	};

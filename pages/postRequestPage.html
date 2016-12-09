@@ -1,0 +1,62 @@
+<div id="postWrapper">
+	
+	<div ng-include="'pages/partials/navbar.html'"></div> 
+	
+	
+	<div id="main-content-wrapper" class="container">
+		<div class="row">
+			<div class="col-sm-1"></div>	
+			<div class="col-sm-10">
+				<h1 class="postHeader">Post an Request</h1>
+				
+				<form class="newItemForm" ng-submit="addRequest()">
+					<div class="inputGroup">	
+						<h5 class="inputLabel">Request Name</h5>
+						<input type="text" class="form-control textField" placeholder="" ng-model="request.name" required>
+					</div>
+
+					<div class="inputGroup">
+						<h5 class="inputLabel">URL of the image you want to use (eventually this will be a file upload)</h5>
+						<input type="text" class="form-control textField" placeholer="" ng-model="request.photoURL" required>
+					</div>
+
+					<div class="inputGroup">
+						<h5 class="inputLabel">Your Location</h5>
+						<input type="text" class="form-control textField" placeholder="" ng-model="request.location" required>
+					</div>
+
+
+
+					<div class="inputGroup">
+						<h5 class="inputLabel">Specifications you would like to mention</h5>
+						<input type="text" class="form-control textField" placeholder="" ng-model="request.specs" required>
+					</div>	
+
+					<div class="inputGroup">
+						<h5 class="inputLabel">Tags,seperated,by,commas</h5>
+						<input type="text" class="form-control textField" placeholder="" ng-model="request.tags" required>
+					</div>	
+
+					<div class="inputGroup priceInput">
+						<h5 class="inputLabel">Budget</h5>
+				    	<input type="number" class="form-control textField" placeholder="" ng-model="request.price" required>  	
+				    </div>
+
+					<div class="inputGroupLrg">
+						<h5 class="inputLabel">Description</h5>
+						<textarea id="itemDescriptionTextBox" class="textField form-control" type="text" placeholder="" ng-model="request.description" required></textarea>
+					</div>	
+
+					<button class="btn-success btn">Submit</button>
+				</form>
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+	</div>
+
+
+
+
+
+
+</div>
