@@ -4,52 +4,59 @@
 	<div ng-include="'pages/partials/navbar.html'"></div>
 
 	<!-- section for the items information -->
-	<div id="itemInfoWrapper">	
-		<div class="container fluid">
-			<div class="row">
+	<div class="" id="itemInfoWrapper">	
+		<div class="row h100 background-silver">	
+			<div class="col-md-1 hidden-sm-down"></div>
+				<div id="itemWrapper" class="col-md-10 col-sm-12">	
+
 				<!-- Item image -->
-				<div class="col-sm-5">
-					<img class="img img-responsive" ng-src={{currRequestItem.photoURL}}>	
+				<div class="col-sm-5 h100">
+					<img class="img img-responsive viewItemImg" ng-src={{currRequestItem.photoURL}}>	
 				</div>
 
 				<!-- Item details -->
-				<div class="col-sm-7">
+				<div class="col-sm-7 hAuto">
 
 					<!-- Title -->
-					<h1 id="requestTitle">{{currRequestItem.name}}</h1>
+					<h1 id="itemTitle">{{currRequestItem.name}}</h1>
 					<br>
 
 					<!-- Description -->
-					<h4 id="requestDesctiption">Description:</h4>
+					<h4 id="itemDesctiption">Description:</h4>
 					<p>{{currRequestItem.description}}</p>
 					<br>
 
 					<!-- Specs -->
 					<h4>Specifications</h4>
-					<p id="requestSpecifications">{{currRequestItem.specs}}</p>
+					<p id="itemSpecifications">{{currRequestItem.specs}}</p>
 					<br>
 
 					<!-- Creator Information -->
 					<h4>Creator Information</h4>
-					<p>Created By: {{ownerOfRequest.display_name}}</p>
+					<p>Created By: {{ownerOfItem.display_name}}</p>
 					<p>In: {{currRequestItem.location}}</p>
 					<br>
 
 					<!-- Price -->
 					<h4>Price</h4>
 					<p>{{currRequestItem.price | currency }}</p>
-					
+
+					<!-- Buttons -->
+					<div class="pull-right viewItemButtons">
+						<button class="btn info-btn" ng-show="loginStatus.isLoggedIn && !ownsCurrentItem" ng-click="openEmailModal()">Contact Seller</button>
+						<a class="btn info-btn" href="#/profile/{{currRequestItem.userWhoPosted}}">View Seller Profile</a>
+						<button class="btn btn-danger" ng-show="ownsCurrentItem" ng-click="openEditItemModal()">Edit Item</button>
+					</div>
+
+
 				</div>
-				
-				<!-- Buttons -->
-				<div>
-					<button class="btn info-btn" ng-show="(loginStatus.isLoggedIn && !(ownsCurrentRequest))" ng-click="openEmailModal()">Contact Requester</button>
-					<a class="btn info-btn" href="#/profile/{{currRequestItem.userWhoPosted}}">View Requester Profile</a>
-					<button class="btn btn-danger" ng-show="ownsCurrentRequest" ng-click="openEditRequestModal()">Edit Item</button>
+
+
 				</div>
-			</div>
+				<!-- End ItemInfoWrapper -->
+			<div class="col-md-1 hidden-sm-down"></div>
 		</div>
-	</div>
+	</div>	
 	<!-- End ItemInfoWrapper -->
 
 
