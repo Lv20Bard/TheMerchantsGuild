@@ -458,17 +458,17 @@ a{
 
 .textField:focus{
     border-bottom-width: 2px;
-    border-bottom-color: #418C18;
+    border-bottom-color: #d4af37;
 
 }
 
 
 .newItemForm input.ng-invalid.ng-touched{
-    border-bottom-color: #b0912e;
+    border-bottom-color: #d43f3a;
 }
 
 .newItemForm textarea.ng-invalid.ng-touched{
-    border-bottom-color: #b0912e;
+    border-bottom-color: #d43f3a;
 }
 
 
@@ -520,14 +520,13 @@ input:focus{
 }
 
 
+
 .form-control:focus {
-    border-color: inherit;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
 
 .form-control{
-    border-color: inherit;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
