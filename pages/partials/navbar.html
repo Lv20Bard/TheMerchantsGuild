@@ -6,8 +6,8 @@
 
 		<!-- Profiles Tab -->
 		<div id="profile-tab" ng-show="loginStatus.isLoggedIn" class="dropdown pull-right nav-dropdown">
-			<button class="nav-dropdown nav-text hideSmall" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Profile&nbsp;<i class="nav-text fa fa-user-circle-o" aria-hidden="true"></i><span class="nav-text caret"></span>
+			<button class="nav-dropdown nav-text" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<span class="hideSmall">Profile&nbsp;</span><i class="nav-text fa fa-user-circle-o" aria-hidden="true"></i>
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dLabel">
 				<li><a id="view-profile-btn" href="#/profile/{{currentUser.$id}}">View Profile</a></li>
@@ -18,7 +18,7 @@
 		<!-- Login Tab -->
 		<div id="profile-tab" ng-hide="loginStatus.isLoggedIn" class="dropdown pull-right nav-dropdown">
 			<button class="nav-dropdown nav-text" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Login<span class="caret"></span>
+				<span class="hideSmall">Login&nbsp;</span><i class="fa fa-sign-in" aria-hidden="true"></i>
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dLabel">
 				<li><a id="facebook-login-dropdown-btn" ng-click="loginWithFacebook()">Login With Facebook</a></li>
@@ -31,22 +31,22 @@
 		<!-- Sellers Tabs -->
 		<div id="seller-tab" class="dropdown pull-right nav-dropdown">
 			<button class="nav-dropdown nav-text" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Sellers<span class="caret"></span>
+				Browse<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dLabel">
 				<li><a id="browse-request-btn" href="#/requests">Browse Requests</a></li>
-				<li ng-show="loginStatus.isLoggedIn"><a id="list-product-btn" href="#/postitem">List A Product</a></li>
+				<li><a id="browse-items-btn" href="#/store">Browse Items</a></li>	
 			</ul>
 		</div>
 
 		<!-- Buyers Tab -->
 		<div id="buyer-tab" class="dropdown pull-right nav-dropdown">
 			<button  class="nav-dropdown nav-text" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Buyers<span class="caret"></span>
+				Post<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dLabel">
-				<li><a id="browse-items-btn" href="#/store">Browse Items</a></li>
-				<li ng-show="loginStatus.isLoggedIn" ><a id="place-request-btn" href="#/postrequest">Submit a Request</a></li>
+				<li ng-show="loginStatus.isLoggedIn"><a id="list-product-btn" href="#/postitem">Post A Product</a></li>
+				<li ng-show="loginStatus.isLoggedIn" ><a id="place-request-btn" href="#/postrequest">Post a Request</a></li>
 			</ul>
 		</div>
 		

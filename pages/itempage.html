@@ -4,54 +4,58 @@
 	<div ng-include="'pages/partials/navbar.html'"></div>
 
 	<!-- section for the items information -->
-	<div id="itemInfoWrapper">	
-		<div class="container fluid">
-			<div class="row">
-				<!-- Item image -->
-				<div class="col-sm-5">
-					<img class="img img-responsive" ng-src={{currStoreItem.photoURL}}>	
-				</div>
+	<div class="" id="itemInfoWrapper">	
+		<div class="row h100 background-silver">	
+			<div class="col-md-1 hidden-sm-down"></div>
+			<div id="itemWrapper" class="col-sm-10 col-xm-12">	
+						<!-- Item image -->
+						<div class="col-sm-5 h100">
+							<img class="img img-responsive viewItemImg" ng-src={{currStoreItem.photoURL}}>	
+						</div>
 
-				<!-- Item details -->
-				<div class="col-sm-7">
+						<!-- Item details -->
+						<div class="col-sm-7 hAuto">
 
-					<!-- Title -->
-					<h1 id="itemTitle">{{currStoreItem.name}}</h1>
-					<br>
+							<!-- Title -->
+							<h1 id="itemTitle">{{currStoreItem.name}}</h1>
+							<br>
 
-					<!-- Description -->
-					<h4 id="itemDesctiption">Description:</h4>
-					<p>{{currStoreItem.description}}</p>
-					<br>
+							<!-- Description -->
+							<h4 id="itemDesctiption">Description:</h4>
+							<p>{{currStoreItem.description}}</p>
+							<br>
 
-					<!-- Specs -->
-					<h4>Specifications</h4>
-					<p id="itemSpecifications">{{currStoreItem.specs}}</p>
-					<br>
+							<!-- Specs -->
+							<h4>Specifications</h4>
+							<p id="itemSpecifications">{{currStoreItem.specs}}</p>
+							<br>
 
-					<!-- Creator Information -->
-					<h4>Creator Information</h4>
-					<p>Created By: {{ownerOfItem.display_name}}</p>
-					<p>In: {{currStoreItem.location}}</p>
-					<br>
+							<!-- Creator Information -->
+							<h4>Creator Information</h4>
+							<p>Created By: {{ownerOfItem.display_name}}</p>
+							<p>In: {{currStoreItem.location}}</p>
+							<br>
 
-					<!-- Price -->
-					<h4>Price</h4>
-					<p>{{currStoreItem.price | currency }}</p>
-					
-				</div>
-				
-				<!-- Buttons -->
-				<div>
-					<button class="btn info-btn" ng-show="loginStatus.isLoggedIn && !ownsCurrentItem" ng-click="openEmailModal()">Contact Seller</button>
-					<a class="btn info-btn" href="#/profile/{{currStoreItem.userWhoPosted}}">View Seller Profile</a>
-					<button class="btn btn-danger" ng-show="ownsCurrentItem" ng-click="openEditItemModal()">Edit Item</button>
-				</div>
+							<!-- Price -->
+							<h4>Price</h4>
+							<p>{{currStoreItem.price | currency }}</p>
+							
+							<!-- Buttons -->
+							<div class="pull-right viewItemButtons">
+								<button class="btn info-btn" ng-show="loginStatus.isLoggedIn && !ownsCurrentItem" ng-click="openEmailModal()">Contact Seller</button>
+								<a class="btn info-btn" href="#/profile/{{currStoreItem.userWhoPosted}}">View Seller Profile</a>
+								<button class="btn btn-danger" ng-show="ownsCurrentItem" ng-click="openEditItemModal()">Edit Item</button>
+							</div>
+
+
+						</div>
+						
+
 			</div>
+			<!-- End ItemInfoWrapper -->
+			<div class="col-md-1 hidden-sm-down"></div>
 		</div>
-	</div>
-	<!-- End ItemInfoWrapper -->
-
+	</div>	
 
 	<!-- Edit Item Modal, opens up a modal so you can edit a item you posted -->
 	<div class="modal fade" id="editItemModal">
