@@ -8,10 +8,8 @@ The Merchants Guild is a webapp designed for helping buyers and sellers of LARP 
 
 
 
-
-
-## Instructions
-> To use The Merchants Guild, [visit the link](lv20bard.github.io/TheMerchantsGuild) 
+## Instructions(#Instructions)
+> To use The Merchants Guild, [visit the link](lv20bard.github.io/TheMerchantsGuild)
 Login using your prefered service: Facebook or Google. 
 The you are free to explore and use The Merchants Guild.
 
@@ -35,6 +33,6 @@ This will allow you to email that person, and then you can work out the details 
 > After you have finish a transaction and work with a user you can leave them a review, this lets other people know that they are good at making larp goods and are friendly to deal with. 
 Reviews strengthen the ability of users to find requests and products they like and make sure they have good work done for them. 
 
-## Development
+## Development(#Development)
 > The Merchants Guild is developed by Ben MacNeil in Sydney, NS.
 If you would like to contact me for any reason I am avaliable at: Ben.S.MacNeil@Gmail.com 
