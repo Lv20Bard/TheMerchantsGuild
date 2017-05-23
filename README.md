@@ -3,8 +3,8 @@ TheMerchantsGuild
 The Merchants Guild is a webapp designed for helping buyers and sellers of LARP goods 
 
 # Table of Contents
-1. [Instructions](# Instructions)
-2. [Development](# Development)
+1. [Instructions](#Instructions)
+2. [Development](#Development)
 
 
 
