@@ -50,7 +50,17 @@ After you have finish a transaction and work with a user you can leave them a re
 Reviews strengthen the ability of users to find requests and products they like and make sure they have good work done for them. 
 
 
-## Development
+# Development
+The Merchants Guild has now started development in React!
+To follow that development visit [our new repo](https://github.com/Lv20Bard/MerchantsGuildReact)
+
+To join our mailing list visit out [new landing page](https://lv20bard.github.io/merchantsguildlandingpage/)
+
+
+
+## About the Developer
 The Merchants Guild is developed by Ben MacNeil in Sydney, NS.
 
 If you would like to contact me for any reason I am avaliable at: Ben.S.MacNeil@Gmail.com 
+
+
