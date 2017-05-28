@@ -6,20 +6,29 @@ The Merchants Guild is a webapp designed for helping buyers and sellers of LARP 
 
 
 # Instructions
-> To use The Merchants Guild, [visit the link](lv20bard.github.io/TheMerchantsGuild)
+
+To use The Merchants Guild, [visit the link](lv20bard.github.io/TheMerchantsGuild)
+
 Login using your prefered service: Facebook or Google. 
 The you are free to explore and use The Merchants Guild.
 
 ### Posting Items
-> You can post an item you are interested in selling under the Sellers tab
-Here you can include information about your product. The more information the better. You can also include the url of a photo of your item this URL can be hosted just about anywhere and will work.
+You can post an item you are interested in selling under the Post Tab
+
+Here you can include information about your product. 
+The more information the better. 
+You can also include the url of a photo of your item this URL can be hosted just about anywhere and will work.
 
 ### Posting requests
-> If you don't make LARP goods but have a specific request for an object you would like made for you, you can post a requst under the Buyers tab
+If you don't make LARP goods but have a specific request for an object you would like made for you, you can post a requst under the Post Tab
+
 Here you can include all the information about your request, including an image as a refrence and exact dimensions of the finish product.
 
 ### Browsing
-> If you would like to see items people have posted, look under "View Items" in the Buyers tab.
+![browsing picture](http://i.imgur.com/0zST6Xu.png)
+
+If you would like to see items people have posted, see the "Browse" tab
+
 If you want to find commissions, look for them in "View Requests" under the sellers tab.
 
 ### Contact
